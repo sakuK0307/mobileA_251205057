@@ -3,6 +3,7 @@ package jp.ac.meijou.android.s251205057;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
@@ -51,9 +52,36 @@ public class MainActivity extends AppCompatActivity {
 
         prefDataStore = PrefDataStore.getInstance(this);
 
+
+
+        prefDataStore.getString("name").ifPresent(text ->{
+            if("a".equals(text)){
+                binding.imageView.setImageResource(R.drawable.ic_launcher_foreground);
+                binding.textView.setText("Aの画像");
+            }else if("b".equals(text)){
+                binding.imageView.setImageResource(R.drawable.outline_accessibility_24);
+                binding.textView.setText("Bの画像");
+            }else{
+                binding.textView.setText("知らない画像");
+            }
+        });
+
         binding.saveButton.setOnClickListener(view->{
             var text = binding.editTextText.getText().toString();
+            if("a".equals(text)){
+                binding.imageView.setImageResource(R.drawable.outline_accessible_24);
+                binding.textView.setText("Aの画像");
+            }else if("b".equals(text)){
+                binding.imageView.setImageResource(R.drawable.outline_accessibility_24);
+                binding.textView.setText("Bの画像");
+            }else{
+                binding.textView.setText("知らない画像");
+            }
             prefDataStore.setString("name",text);
+        });
+
+        binding.resetButton.setOnClickListener(view ->{
+            binding.editTextText.setText("");
         });
     }
 }
