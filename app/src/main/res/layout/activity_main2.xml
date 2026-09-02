@@ -10,7 +10,7 @@
 
   <Button
       android:id="@+id/button_A"
-      android:text="ボタンA"
+      android:text="明示的Intent"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       app:layout_constraintTop_toTopOf="parent"
@@ -20,7 +20,7 @@
 
   <Button
       android:id="@+id/button_B"
-      android:text="ボタンB"
+      android:text="暗黙的Intent"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       app:layout_constraintTop_toTopOf="@+id/button_A"
@@ -58,6 +58,23 @@
       android:layout_marginTop="14dp"
       android:layout_marginLeft="14dp"
       android:visibility="gone"/>
+
+  <EditText
+      android:id="@+id/intent_editText"
+      android:layout_width="300dp"
+      android:layout_height="wrap_content"
+      android:hint="MainActivity3に表示する内容"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@id/textView_gone"
+      app:layout_constraintEnd_toStartOf="@+id/intent_button"/>
+
+  <Button
+    android:id="@+id/intent_button"
+      android:text = "intent"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      app:layout_constraintTop_toTopOf="@id/intent_editText"
+      app:layout_constraintStart_toEndOf="@id/intent_editText"/>
 
 
 

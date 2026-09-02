@@ -31,6 +31,9 @@ public class MainActivity3 extends AppCompatActivity {
             return insets;
         });
 
+
+        binding.text.setText(getIntent().getStringExtra("editText"));
+
         binding.number0.setOnClickListener(view ->{
             binding.text.setText(binding.text.getText()+"0");
 
