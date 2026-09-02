@@ -1,5 +1,6 @@
 package jp.ac.meijou.android.s251205057;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.activity.EdgeToEdge;
@@ -30,6 +31,21 @@ public class MainActivity3 extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
+        binding.buttonOk.setOnClickListener(view->{
+            var ok_intent = new Intent();
+            ok_intent.putExtra("ret","OK");
+            setResult(RESULT_OK, ok_intent);
+            finish();
+
+        });
+
+        binding.buttonCancel.setOnClickListener(view->{
+            setResult(RESULT_CANCELED);
+            finish();
+        });
+
+
 
 
         binding.text.setText(getIntent().getStringExtra("editText"));

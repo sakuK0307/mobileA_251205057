@@ -169,6 +169,28 @@
         app:layout_constraintStart_toEndOf="@+id/equal"
         />
 
+    <Button
+        android:id="@+id/button_ok"
+        android:text="OK"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/ac"
+        app:layout_constraintStart_toStartOf="@+id/ac"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="50dp"
+
+        />
+
+    <Button
+        android:id="@+id/button_cancel"
+        android:text="cancel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="@+id/button_ok"
+        app:layout_constraintStart_toEndOf="@+id/button_ok"
+        android:layout_marginLeft="50dp"
+        />
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

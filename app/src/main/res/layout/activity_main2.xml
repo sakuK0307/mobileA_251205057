@@ -76,6 +76,24 @@
       app:layout_constraintTop_toTopOf="@id/intent_editText"
       app:layout_constraintStart_toEndOf="@id/intent_editText"/>
 
+  <TextView
+      android:id="@+id/result"
+      android:text ="Result:"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@id/intent_editText"
+
+      android:layout_width="300dp"
+      android:layout_height="wrap_content"
+      android:textSize="30dp"
+    />
+
+  <Button
+      android:id="@+id/button_action"
+      android:text = "Action"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      app:layout_constraintTop_toTopOf="@id/result"
+      app:layout_constraintStart_toEndOf="@id/result"/>
 
 
   </androidx.constraintlayout.widget.ConstraintLayout>

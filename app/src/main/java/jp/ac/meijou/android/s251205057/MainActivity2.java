@@ -1,14 +1,19 @@
 package jp.ac.meijou.android.s251205057;
 
+import android.app.Instrumentation;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.activity.EdgeToEdge;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+
+import java.util.Optional;
 
 import jp.ac.meijou.android.s251205057.databinding.ActivityMain2Binding;
 import jp.ac.meijou.android.s251205057.databinding.ActivityMain3Binding;
@@ -52,6 +57,29 @@ public class MainActivity2 extends AppCompatActivity {
             startActivity(intent);
         });
 
+        binding.buttonAction.setOnClickListener(view ->{
+            var intent = new Intent(this, MainActivity3.class);
+            getActivityResult.launch(intent);
+        });
+
+
+
 
     }
+
+    private final ActivityResultLauncher<Intent> getActivityResult = registerForActivityResult(
+            new ActivityResultContracts.StartActivityForResult(), result ->{
+                switch(result.getResultCode()){
+                    case RESULT_OK ->{
+                        Optional.ofNullable(result.getData()).map(data -> data.getStringExtra("ret")).map(text ->"Result: "+ text).ifPresent(text -> binding.result.setText(text));
+                    }
+                    case RESULT_CANCELED -> {
+                        binding.result.setText("Result:Canceled");
+                    }
+                    default ->{
+                        binding.result.setText("Result:UnKnown ("+result.getResultCode()+")");
+                    }
+                }
+            }
+    );
 }
